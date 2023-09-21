@@ -7,13 +7,13 @@
     <div class="row mt-4" >
         {% for product in products %}
         <div class="col-lg-4" style="margin-bottom: 10px;">
-            <img class="thumbnail" src="{{product.image.url}}" alt="">
+            <img class="thumbnail" src="{{product.imageURL}}" alt="">
             <div class="box-element product">
                 <h6><strong>{{product.name}}</strong></h6>
                 <hr>
                 <button class="btn btn-outline-secondary add-btn">Add to cart</button>
                 <a href="#" class="btn btn-outline-success" >View</a>
-                <h4 style="display: inline;float: right;">Ksh.{{product.price|floatformat:2}}</h4>
+                <h4 style="display: inline;float: right; font-size: 20px;">Ksh.{{product.price|floatformat:2}}</h4>
             </div>
         </div>
         {% endfor %}
