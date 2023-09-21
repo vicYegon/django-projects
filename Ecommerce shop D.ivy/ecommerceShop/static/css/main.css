@@ -19,6 +19,10 @@ body{
     box-shadow: -1px -3px 5px -2px rgba(214,214,214,1);
 }
 
+.product-box{
+    margin-bottom: 10px;
+}
+
 .product{border-radius: 0 0 4px 4px;}
 
 .bg-dark{
