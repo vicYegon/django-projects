@@ -17,6 +17,8 @@ for(let i = 0; i < updateBtn.length; i++){
     })
 }
 
+// can also create a rest-api for this function
+
 function updateUserOrder(productId, action){
     console.log("User logged in, sending data...")
 
@@ -38,3 +40,4 @@ function updateUserOrder(productId, action){
         console.log ('data:', data);
     })
 }
+
