@@ -1,0 +1,20 @@
+# virtual environment
+../myvworld/
+
+#dll files
+./__pycache__/
+store/migrations
+
+.env
+
+# static files
+static/
+
+#media files
+
+#database
+db.sqlite3
+
+# ide files
+.idea/
+.vscode/

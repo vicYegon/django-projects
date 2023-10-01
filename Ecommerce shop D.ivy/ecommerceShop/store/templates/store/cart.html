@@ -3,7 +3,6 @@
 {% load static %}
 
 
-
 {% block content %}
 <div style="width: 100%;
             height: 250px;
@@ -62,14 +61,16 @@
                     <div class="quantity" 
                         style="display: inline-block;
                             font-weight:700px;">
-                        <img class="chg-quantity" 
+                        <img class="chg-quantity update-cart"
+                        data-product="{{item.product.id}}" data-action="add"
                             src="{% static 'static/images/arrow-up.png' %}" alt=""
                             style=" width: 12px;
                                 cursor: pointer;
                                 display: block;
                                 transition: all .1s ease;">
                         
-                        <img class="chg-quantity" 
+                        <img class="chg-quantity update-cart"
+                        data-product="{{item.product.id}}" data-action="remove" 
                             src="{% static 'static/images/arrow-down.png' %}" alt=""
                             style=" width: 12px;
                             cursor: pointer;
