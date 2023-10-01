@@ -64,13 +64,18 @@
           <form class="form-inline my-2 my-lg-0">
             <a href="" class="btn btn-warning">Login</a>
             <a href="{% url 'cart' %}">
-                <img src="{% static 'static/images/cartImage3.png' %}" class="img-dark" id="cart-icon" alt="">
+                <img src="{% static 'static/images/cartImage3.png' %}" 
+                     class="img-dark" 
+                     id="cart-icon" 
+                     alt=""
+                     style="font-size: 35px;"
+                     >
+
             </a>
-            <p id="cart-total">0</p>
+            <p id="cart-total">{{cartItems}}</p>
           </form>
         </div>
     </nav>
-
     <div class="container">
         {% block content %}
 
