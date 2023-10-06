@@ -3,6 +3,7 @@
 {% load static %}
 
 {% block content %}
+<!-- checkout page header -->
 <div style="width: 100%;
             height: 250px;
             background: linear-gradient(#467b83c0, white);
@@ -17,12 +18,12 @@
               letter-spacing: 2px;">Checkout</p>
 </div>
 
-
+<!-- structure of the checkout form -->
 <div class="row">
     <div class="col-lg-6 mt-4">
         <div class="box-element" id="form-wrapper">
             <form id="form">
-                <div class="user-info">
+                <div id="user-info">
                     <div class="form-field">
                         <input required class="form-control" type="text" name="name" placeholder="Name..">
                     </div>
@@ -31,24 +32,24 @@
                     </div>
                 </div>
 
-                <div class="shipping-info">
+                <div id="shipping-info">
                     <hr>
                     <p>Shipping Information</p>
                     <hr>
                     <div class="form-field">
-                        <input type="text" class="form-control" name="address" placeholder="Address..">
+                        <input type="text" class="form-control" name="address" placeholder="Address...">
                     </div>
                     <div class="form-field">
-                        <input type="text" class="form-control" name="city" placeholder="City..">
+                        <input type="text" class="form-control" name="city" placeholder="Town">
                     </div>
                     <div class="form-field">
-                        <input type="text" class="form-control" name="province/state" placeholder="Province/ State..">
+                        <input type="number" class="form-control" name="province/state" placeholder="Phone number">
                     </div>
                     <div class="form-field">
-                        <input type="text" class="form-control" name="zipcode" placeholder="Zipcode..">
+                        <input type="text" class="form-control" name="zipcode" placeholder="Nearest bus station">
                     </div>
                     <div class="form-field">
-                        <input type="text" class="form-control" name="country" placeholder="Country">
+                        <input type="text" class="form-control" name="country" placeholder="County">
                     </div>
                 </div>
 
@@ -60,6 +61,7 @@
 
         <div class="box-element hidden" id="payment-info">
             <small>Paypall Options</small>
+            <button id="make-payment">Make payment</button>
         </div>
     </div>
 
@@ -71,6 +73,8 @@
         <h3>Order Summary</h3>
         <hr>
         
+        <!-- loop to calculate the total quantity and amount for items in the cart -->
+        <!-- this is the same as the one in the cart page -->
         {% for item in items %}
         <div class="cart-row">
             <div style="flex: 2;"><img 
@@ -89,5 +93,44 @@
         <hr>
     </div>
 </div>
+
+<script type="text/javascript">
+    let shipping = '{{order.shipping}}';
+
+    if (shipping == 'False'){
+        document.getElementById("shipping-info").innerHTML = '';
+    }
+
+    if (user != 'AnonymousUser'){
+        document.getElementById('user-info').innerHTML = '';
+    }
+
+    if(shipping == 'False' && user != 'AnonymousUser'){
+        // hide form if user is logged in 
+        document.getElementById('form-wrapper').classList.add('hidden');
+        // show payment if logged in user wants to purchase an item that does not require shipping
+        document.getElementById('payment-info').classList.remove('hidden');
+    }
+
+    let form = document.getElementById('form');
+
+    // logic for when checkout info is submitted, the checkout for becomes hidden then the payment option is addeds
+    form.addEventListener('submit', function(e){
+        e.preventDefault()
+        console.log('Form submitted...');
+        document.getElementById('form-button').classList.add('hidden');
+        document.getElementById('payment-info').classList.remove('hidden');
+
+        // event listener for the make payment button
+        document.getElementById("make-payment").addEventListener('click', function(e){
+            e.preventDefault();
+            submitFormData();
+        })
+
+        function submitFormData(){
+            console.log('Payment button clicked')
+        }
+    })
+</script>
 
 {% endblock content %}
