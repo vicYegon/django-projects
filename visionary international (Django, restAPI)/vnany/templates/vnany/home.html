@@ -1,0 +1,98 @@
+{% extends 'vnany/main.html' %}
+
+{% load static %}
+
+{% block content %}
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="{% url 'home' %}" style="font-size: 25px; 
+                                                                font-weight: bold; 
+                                                                font-family: monospace; 
+                                                                letter-spacing: 2px;
+                                                                color: rgb(255, 255, 255);
+                                                                font-style: italic;
+                                                                border: 1px solid rgb(255, 255, 255);
+                                                                padding: 2px;
+                                                                border-radius: 5px;">VI</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" 
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
+            aria-expanded="false" aria-label="Toggle navigation">  
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+            <a class="nav-link" href="{% url 'home' %}" style="font-weight: bold;
+                                                                font-size: 20px;
+                                                                border-bottom: 2px solid rgb(82, 80, 224)yellow;"> Home <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <a href="" class="btn btn-warning">Login</a>
+            <a href="#">
+                <img src="{% static 'static/images/cartimage.png' %}" 
+                    class="img-dark" 
+                    id="cart-icon" 
+                    alt=""
+                    style="font-size: 35px;"
+                    >
+
+            </a>
+            <p id="cart-total">0</p>
+        </form>
+        </div>
+    </nav>
+
+    <div class="row" >
+        <div class="card" style="width: 300px;">
+            <img src="images/user.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Victor Yegon</h5>
+                <p class="card-text">Professional Househelp offering both dayburg and boarding services.</p>
+                <a href="#" class="btn btn-primary">View</a>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src="images/user.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Victor Yegon</h5>
+              <p class="card-text">Professional Househelp offering both dayburg and boarding services.</p>
+              <a href="#" class="btn btn-primary">View</a>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src="images/user.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Victor Yegon</h5>
+              <p class="card-text">Professional Househelp offering both dayburg and boarding services.</p>
+              <a href="#" class="btn btn-primary">View</a>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src="images/user.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Victor Yegon</h5>
+              <p class="card-text">Professional Househelp offering both dayburg and boarding services.</p>
+              <a href="#" class="btn btn-primary">View</a>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src="images/user.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Victor Yegon</h5>
+              <p class="card-text">Professional Househelp offering both dayburg and boarding services.</p>
+              <a href="#" class="btn btn-primary">View</a>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src="images/user.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Victor Yegon</h5>
+              <p class="card-text">Professional Househelp offering both dayburg and boarding services.</p>
+              <a href="#" class="btn btn-primary">View</a>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

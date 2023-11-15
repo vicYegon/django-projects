@@ -22,18 +22,20 @@ class Customer(models.Model):
     def __str__(self):
         return self.fullName
     
-AVAILABILITY_STATUS = [
-    ("Not available", "Not available"),
-    ("Available", "Available"),
-    ("Immediate", "Immediate"),
-]
 
 class Employee(models.Model):
+    
+    AVAILABILITY_STATUS = [
+        ("Not available", "Not available"),
+        ("Available", "Available"),
+        ("Immediate", "Immediate"),
+    ]
+
     name = models.CharField(max_length=200, null=True)
     speciality = models.CharField(max_length=200, null=True, blank=True)
     address = models.CharField(max_length=200)
     description = models.TextField(max_length=500)
-    # image
+    image = models.ImageField(null=True, blank=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
     age = models.IntegerField(default=0, null=True)
     salary_expectation = models.FloatField()
@@ -51,7 +53,7 @@ class Employee(models.Model):
 
 class Order(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, null=True)
-    date_booked = models.DateTimeField(auto_now_add=True)
+    date_booked = models.DateTimeField(auto_now_add=True, null=True, blank=True)
     complete = models.BooleanField(default=False, null=True, blank=True)
     transaction_id = models.CharField(max_length=100, null=True)
 
@@ -60,3 +62,9 @@ class Order(models.Model):
     
     class Meta:
         ordering = ['date_booked']
+
+class Service(models.Model):
+    title = models.CharField(max_length=200, null=True, blank=True)
+    description = models.CharField(max_length=500, null=True, blank=True)
+    sku = models.SlugField(max_length=200, null=True, blank=True)
+    service_id = models.IntegerField(null=True)

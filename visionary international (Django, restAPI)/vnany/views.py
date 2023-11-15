@@ -7,4 +7,4 @@ import json
 def home(request):
     employees = Employee.objects.all()
     context = {'employee': employees}
-    return render(request, 'home/home.html')
+    return render(request, 'vnany/home.html')
