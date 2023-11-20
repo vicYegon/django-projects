@@ -1,0 +1,6 @@
+# files to ignore
+
+# virtual env
+/venv/  
+
+/__pycache__/
